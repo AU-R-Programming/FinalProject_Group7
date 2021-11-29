@@ -1,14 +1,16 @@
-# Import data 
-abalone <- read.csv(file = 'abalone.csv') 
+# # Import data 
+# abalone <- read.csv(file = 'abalone.csv') 
+# 
+# # Transform dummy variables
+# library(fastDummies)
+# abalone <- dummy_cols(abalone, select_columns = "Sex")
+# 
+# # Create response variable and set of predictors 
+# response <- abalone$Rings
+# explanatory <- abalone[, 2:11]
+# explanatory <- subset(explanatory, select = -Rings)
 
-# Transform dummy variables
-library(fastDummies)
-abalone <- dummy_cols(abalone, select_columns = "Sex")
 
-# Create response variable and set of predictors 
-y <- abalone$Rings
-x <- abalone[, 2:11]
-x <- subset(x, select = -Rings)
 
 lin_reg = function(explanatory,response,alpha = 0.05){
   y = as.vector(response)
@@ -69,9 +71,18 @@ lin_reg = function(explanatory,response,alpha = 0.05){
   
   # P-value
   P = 1-pf(F_star,DFM,DFE)
-  print(SSE)
-  return(list(beta_hat,conf_int,Rsq,Cp,F_star,P))
+  
+  residual = y - y_hat
+  
+  # Plots
+  
+  
+  plot1 = plot(y_hat,residual)
+  plot2 = abline(h=0,col="red")
+  plot3 = qqnorm(residual)
+  plot4 = qqline(residual, col = 'red',datax = 0)
+  
+  return(list(beta_hat,conf_int,Rsq,Cp,F_star,P,plot1,plot2,plot3,plot4))
 }
 
-response <- lin_reg(x, y)
 
