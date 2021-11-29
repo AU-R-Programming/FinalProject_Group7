@@ -1,3 +1,15 @@
+# Import data 
+abalone <- read.csv(file = 'abalone.csv') 
+
+# Transform dummy variables
+library(fastDummies)
+abalone <- dummy_cols(abalone, select_columns = "Sex")
+
+# Create response variable and set of predictors 
+y <- abalone$Rings
+x <- abalone[, 2:11]
+x <- subset(x, select = -Rings)
+
 lin_reg = function(explanatory,response,alpha = 0.05){
   y = as.vector(response)
   n = length(y)
@@ -11,12 +23,12 @@ lin_reg = function(explanatory,response,alpha = 0.05){
   beta0[1] = y_mean
   if (p>1){
     for (i in 2 : p){
-      beta0[i] = cov(y,X[,i])
+      beta0[i] = cov(y,X[,i])/var(X[,i])
     }
   }
   
   fnc = function(aa) t(y-X%*%aa)%*%(y-X%*%aa)
-  beta_hat = optim(beta0,fnc)$par
+  beta_hat = optim(beta0,fnc,method = "L-BFGS-B")$par
   
   y_hat = X%*%beta_hat
   
@@ -57,9 +69,9 @@ lin_reg = function(explanatory,response,alpha = 0.05){
   
   # P-value
   P = 1-pf(F_star,DFM,DFE)
-  
+  print(SSE)
   return(list(beta_hat,conf_int,Rsq,Cp,F_star,P))
 }
 
-
+response <- lin_reg(x, y)
 

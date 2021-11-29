@@ -32,7 +32,7 @@ error <- t(y - (x %*% betas))%*%(y - (x %*% betas))
 
 learning_rate <- 0.3
 
-for (it in 1:50000) { # This for loop repeats the algorithm
+for (it in 1:30000) { # This for loop repeats the algorithm
 betas_update <- rep(NA, n_predictors) # initialize the betas for update
 
 for(i in 1:n_predictors){ # This for loop gets the gradient for each beta
@@ -60,7 +60,7 @@ sigma_hat_sq = as.numeric(t(y-x%*%betas)%*%(y-x%*%betas)/(n_obs-n_predictors))
 Rsq = 1-(SSE/SST)
 
 # C_p
-Cp = SSE + 2*p*sigma_hat_sq
+Cp = SSE + 2*n_predictors*sigma_hat_sq
 
 # confidence intervals
 alpha <- 0.05
@@ -86,5 +86,7 @@ F_star = MSM/MSE
 
 # P-value
 p_value = 1-pf(F_star, DFM, DFE)
+
+# Plots
 
 
