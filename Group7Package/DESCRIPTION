@@ -1,0 +1,19 @@
+Package: Group7Package
+Type: Package
+Title: Linear Regression 
+Version: 0.1.0
+Authors@R: c(
+    person("Carlos", "Matus", email = "cro0010@auburn.edu", role = "aut"),
+    person("Ridvan", "Ozdemir", email = "rzo0012@auburn.edu", role = "aut"),
+    person("Ogonnaya", "Romanus", email = "omr0010@auburn.edu", role = c("aut","cre"))
+    )
+Maintainer: Ogonnaya Romanus <omr0010@auburn.edu>
+Description: This performs linear regression, and outputs the estimated coefficients,
+             confidence intervals for the coefficients, R square, cp, F statistics, and its p-value, plots of residual
+             against fitted values, qq-plot of residuals, and histogram of residuals.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2
+RoxygenNote: 7.1.2
