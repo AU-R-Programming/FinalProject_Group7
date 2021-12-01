@@ -12,6 +12,7 @@
 
 ## Here starts the package
 lin_reg = function(response, predictor, alpha = 0.05){
+  predictor = as.data.frame(predictor)
   col_predictor = colnames(predictor)
   response = as.vector(response)
   n_obs <- length(response)
