@@ -1,17 +1,17 @@
 # # Import data
-# abalone <- read.csv(file = 'abalone.csv')
+abalone <- read.csv(file = 'abalone.csv')
 # 
-# # Transform dummy variables
-# library(fastDummies)
-# abalone <- dummy_cols(abalone, select_columns = "Sex")
+# Transform dummy variables
+library(fastDummies)
+abalone <- dummy_cols(abalone, select_columns = "Sex")
 # 
-# # Create response variable and set of predictors
-# response <- abalone$Rings
-# predictor <- abalone[, 2:11]
-# predictor <- subset(predictor, select = -Rings)
+# Create response variable and set of predictors
+response <- abalone$Rings
+predictor <- abalone[, 2:11]
+predictor <- subset(predictor, select = -Rings)
 
 ## Here starts the package
-lin_reg = function(response, predictor, alpha = 0.05){
+lin_reg = function(response, predictor, alpha = 0.05, learning_rate = 0.1, iterations = 1000){
   predictor = as.data.frame(predictor)
   col_predictor = colnames(predictor)
   response = as.vector(response)
@@ -34,9 +34,7 @@ lin_reg = function(response, predictor, alpha = 0.05){
   
   # Start gradient descent 
   
-  learning_rate <- 0.3
-  
-  for (it in 1:30000) { # This for loop repeats the algorithm
+  for (it in 1:iterations) { # This for loop repeats the algorithm
     betas_update <- rep(NA, n_predictors) # initialize the betas for update
     
     for(i in 1:n_predictors){ # This for loop gets the gradient for each beta
@@ -94,7 +92,7 @@ lin_reg = function(response, predictor, alpha = 0.05){
   
   # Plots
   par(mfrow=c(2,2))
-  plot1 = plot(y_hat,residual,xlab = "fitted values",ylab = "Residual",main = "Residuals vs fitted-values")
+  plot1 = plot(y_hat,residual,xlab = "Fitted values",ylab = "Residual",main = "Residuals vs Fitted-values")
   plot2 = abline(h=0,col="red")
   plot3 = qqnorm(residual,main = "QQ Plot of Residual")
   plot4 = qqline(residual, col = "red")
