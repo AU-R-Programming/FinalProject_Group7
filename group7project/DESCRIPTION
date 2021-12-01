@@ -1,14 +1,13 @@
 Package: group7project
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Perform Linear Regression via Gradient Descent Method
 Version: 0.1.0
 Authors@R: c(
-    person("Justin", "Lee", email = "justinlee@psu.edu", role = c("aut","cre")),
-    person("Stephane", "Guerrier", role = "aut"),
-    person("Roberto", "Molinari", role = "aut"),
-    person("Matthew", "Beckman", role = "aut")
+    person("Carlos", "Matus", email = "cro0010@auburn.edu", role = "aut"),
+    person("Ridvan", "Ozdemir", email = "rzo0012@auburn.edu", role = "aut"),
+    person("Ogonnaya", "Romanus", email = "omr0010@auburn.edu", role = c("aut","cre"))
     )
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: Group7 <yourself@somewhere.net>
 Description: Package to perform linear regression using gradient descent method to find the coefficients of the regression.
 License: What license is it under?
 Encoding: UTF-8
