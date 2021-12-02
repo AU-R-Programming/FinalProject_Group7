@@ -11,4 +11,4 @@ predictor <- abalone[, 2:11]
 predictor <- subset(predictor, select = -Rings)
 
 library(group7project)
-lin_reg(response, predictor, iterations = 2000)
+lin_reg(response, predictor, iterations = -1)

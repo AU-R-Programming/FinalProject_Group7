@@ -38,6 +38,9 @@ A \code{list} containing the following attributes:
      \item{Cp}{Cp-mallows}
      \item{F statistic}{Statistic F to compute the p-value}
      \item{P-value}{p-value}
+     \item{Resid_plot}{Plot of residuals against fitted values}
+     \item{qq-plot}{qq-plot of residulas}
+     \item{hist_resid}{Histogram of residuals}
 }
 }
 \description{
