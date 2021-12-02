@@ -32,6 +32,19 @@
 #' lin_reg(response = x, predictor = y, alpha = 0.05, learning_rate = 0.1,
 #' iterations = 1000)
 lin_reg = function(response, predictor, alpha = 0.05, learning_rate = 0.1, iterations = 1000){
+
+  if (alpha >= 1 | alpha <= 0) {
+    print("Alpha must be between 0 and 1")
+  } else if (learning_rate >= 1 | learning_rate <= 0) {
+    print("The learning rate must be between 0 and 1")
+  } else if (iterations%%1 != 0) {
+    print("The number of iterations must be a positive integer")
+  } else if (iterations <= 0){
+    print("The number of iterations must be a positive integer")
+  } else {
+
+
+
   predictor = as.data.frame(predictor)
   col_predictor = colnames(predictor)
   response = as.vector(response)
@@ -153,10 +166,22 @@ lin_reg = function(response, predictor, alpha = 0.05, learning_rate = 0.1, itera
   result = list(table_betas, tab_ci, tab_R_sq, tab_C_p, tab_F_star, tab_p)
 
   return(result)
+  } # validation bracket
 }
 
 ## Here starts the package
 lin_reg = function(response, predictor, alpha = 0.05, learning_rate = 0.1, iterations = 1000){
+
+  if (alpha >= 1 | alpha <= 0) {
+    print("Alpha must be between 0 and 1")
+  } else if (learning_rate >= 1 | learning_rate <= 0) {
+    print("The learning rate must be between 0 and 1")
+  } else if (iterations%%1 != 0) {
+    print("The number of iterations must be a positive integer")
+  } else if (iterations <= 0){
+    print("The number of iterations must be a positive integer")
+  } else {
+
   predictor = as.data.frame(predictor)
   col_predictor = colnames(predictor)
   response = as.vector(response)
@@ -278,5 +303,6 @@ lin_reg = function(response, predictor, alpha = 0.05, learning_rate = 0.1, itera
   result = list(table_betas, tab_ci, tab_R_sq, tab_C_p, tab_F_star, tab_p)
 
   return(result)
+  } # validation bracket
 }
 
