@@ -43,8 +43,6 @@ lin_reg = function(response, predictor, alpha = 0.05, learning_rate = 0.1, itera
     print("The number of iterations must be a positive integer")
   } else {
 
-
-
   predictor = as.data.frame(predictor)
   col_predictor = colnames(predictor)
   response = as.vector(response)
