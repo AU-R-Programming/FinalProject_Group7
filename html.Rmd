@@ -1,16 +1,10 @@
 ---
-title: "Linear regression using the gradient descent method"
-author:
-  - name: "Carlos Olivos ^[Email: cro0010@auburn.edu]"
-  - name: "Ridvan Ozdemir ^[Email: rzo0012@auburn.edu]"
-  - name: "Ogonnaya Romanus ^[Email: omr0010@auburn.edu]"
+title: "vignette"
 output: html_document
 ---
 # FinalProject_Group7/group7project
 
-This project is an R package to fit a linear model for a given data using the gradient descent method. The user must provide a matrix that corresponds to the predictors and the response variable from the dataset, which must be a vector with the same length as the matrix length. Moreover, the significance level for the regression 
-coefficients' confidence intervals, alpha, must be between 0 and 1. 
-The gradient descent method requires the learning rate, which must be between 0 and 1. Also, this method requires a number of iterations, which has to be a positive integer. Thus, the higher the learning rate, the faster convergence will occur. Moreover, with more iterations, the model will provide a better estimation for the regression coefficients. Nevertheless, the above will increase the computational time. The default values of the above parameters are as follow:  `alpha=0.05`, `learning rate =0.1` and `iteration=1000`.
+This project is a R package to fit a linear model for a given data using gradient decent method. The user must provide an explanatory data which must be a matrix and a response data which must be a vector whose length is the same with the number of rows of the explanatory data. Also, deciding alpha value for confidence interval which must be less than 1, learning rate for gradient decent method and number of iterations of gradient decent method are possible but not compulsory. They are `alpha=0.05`, `learning rate =0.1` and `iteration=1000` by default.
 
 ```{r eval=FALSE}
 lin_reg(response, predictor, alpha = 0.05, learning_rate = 0.1, iterations = 1000)
@@ -20,23 +14,25 @@ The function has two different outputs. The first one is a list of tables:
 ```{r eval=FALSE}
 list(table_betas, tab_ci, tab_R_sq, tab_C_p, tab_F_star, tab_p)
 ```
-with `table_betas` the vector of coefficient whose length is the same as `response` such that `response = predictor%*%betas`
+with 
 
-* **tab_ci:** the table with the confidence intervals for `Beta`
+* **table_betas** the vector of coefficient whose length is the same as `response` such that `response = predictor%*%betas`
 
-* **tab_R_sq:** R-square value
+* **tab_ci** the table of confidence intervals for `Beta`
 
-* **tab_C_p:** $C_p$ value
+* **tab_R_sq** R-square value
 
-* **tab_F_star:** $F^{\star}$ value
+* **tab_C_p** $C_p$ value
 
-* **tab_p:** p-value
+* **tab_F_star** $F^{\star}$ value
 
-The second output are plots where
+* **tab_p** p-value
 
-* **Plot1:** the plot of Residual vs Fitted-values
-* **Plot2:** the qq-plot of Residuals
-* **Plot3:** Histogram of Residuals
+The second output is plots where
+
+* **Plot1** the plot of Residual vs fitted-values
+* **Plot2** the qq-plot of Residuals
+* **Plot3** Histogram of Residuals
 
 ## Example
 The function `lin_reg` is applied to Dataset `abalone.data` as follows
