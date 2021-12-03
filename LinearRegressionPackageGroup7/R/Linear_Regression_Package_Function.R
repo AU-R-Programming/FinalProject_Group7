@@ -1,7 +1,3 @@
-
-
-
-
 #' @title Linear regression using gradient descent method
 #'
 #' @description Perform a linear regression using the gradient descent

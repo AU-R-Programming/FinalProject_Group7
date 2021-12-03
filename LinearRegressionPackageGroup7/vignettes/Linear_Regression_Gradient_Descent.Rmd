@@ -10,24 +10,23 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-**Github Repository Name and Page:**  [FinalProject_Group7]( https://au-r-programming.github.io/FinalProject_Group7/)
+**Github Repository Name and Page:**  [FinalProject_Group7](https://github.com/AU-R-Programming/FinalProject_Group7)
 
+In this project, an R package to fit a linear regression model for a given data using the gradient descent method is built. To use this package, the user must provide a matrix/data frame whose columns correspond to the predictors; and a response variable, which must be a vector with the same length as the number of rows of the matrix/data frame. Moreover, the significance level for the regression coefficients' confidence intervals, alpha, must be between 0 and 1.
 
+The gradient descent method requires the learning rate, which must be between 0 and 1. Also, this method requires the user to provide a number of iterations, which has to be a positive integer. Thus, the higher the learning rate, the faster convergence will occur. Moreover, with more iterations, the model will better estimate the regression coefficients. Nevertheless, the above will increase the computational time. The default values of the above parameters are as follow:  `alpha=0.05`, `learning rate =0.1` and `iteration=1000`.
 
+The package can be installed directly from Github.
 
-In this project, an R package to fit a linear regression model for a given data using the gradient descent method is built. To use this package, the user must provide a matrix/data frame whose columns corresponds to the predictors; and a response variable, which must be a vector with the same length as the number of rows of the matrix/data frame. Moreover, the significance level for the regression coefficients' confidence intervals, alpha, must be between 0 and 1.
-
-The gradient descent method requires the learning rate, which must be between 0 and 1. Also, this method requires the user to provide a number of iterations, which has to be a positive integer. Thus, the higher the learning rate, the faster convergence will occur. Moreover, with more iterations, the model will provide a better estimation for the regression coefficients. Nevertheless, the above will increase the computational time. The default values of the above parameters are as follow:  `alpha=0.05`, `learning rate =0.1` and `iteration=1000`.
-
-The package can be install directly from Github.
-
+```{r eval=FALSE}
+devtools::install_github("AU-R-Programming/FinalProject_Group7/LinearRegressionPackageGroup7")
+```
 
 The implementation of the package uses the `lin_regr()` function.
 
 ```{r eval=FALSE}
 lin_regr(response, predictor, alpha = 0.05, learning_rate = 0.1, iterations = 1000)
 ```
-
 
 The function returns two sets of outputs.
 
@@ -53,7 +52,6 @@ The second outputs are plots:
 * **Plot1:** the plot of Residual vs Fitted-values
 * **Plot2:** the qq-plot of Residuals
 * **Plot3:** Histogram of Residuals
-
 
 ## Example
 As an illustration, we utilize the package to perform linear regression on the data set `abalone.data`, provided on the canvas of this course.
