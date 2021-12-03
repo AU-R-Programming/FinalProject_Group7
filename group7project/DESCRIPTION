@@ -11,4 +11,9 @@ Maintainer: Carlos Olivos <cro0010@auburn.edu>
 Description: Package to perform linear regression using the gradient descent method to find the coefficients of the regression.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
+Suggests: 
+    knitr,
+    rmarkdown,
+    group7project
+VignetteBuilder: knitr
