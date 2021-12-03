@@ -71,7 +71,7 @@ abalone = subset(abalone, select = -Sex)
 y <- abalone$Rings
 x = abalone
 x <- subset(x, select = -Rings)
-#lin_reg(response = y,predictor = x,alpha = 0.05,learning_rate = 0.1,iterations = 10000)
+lin_reg(response = y,predictor = x,alpha = 0.05,learning_rate = 0.1,iterations = 10000)
 ```
 
 
