@@ -1,5 +1,5 @@
 ---
-title: "Linear_Regression_Gradient_Via_Descent"
+title: "Linear_Regression_Via_Gradient_Descent"
 author:
   - name: "Carlos Olivos ^[Email: cro0010@auburn.edu]"
   - name: "Ridvan Ozdemir ^[Email: rzo0012@auburn.edu]"
